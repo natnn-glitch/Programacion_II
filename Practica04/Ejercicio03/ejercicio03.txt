@@ -1,0 +1,9 @@
+| Par de clases | Tipo de relación | Evidencia (línea de código o método) |
+|---|---|---|
+| Estudiante y Persona | Herencia | `class Estudiante extends Persona` |
+| Universidad y Carrera | Composición | `Carrera d = new Carrera(nombreCarrera);` dentro de `crearCarrera()` (la Universidad crea la parte) |
+| Carrera y Docente | Agregación | `public void agregarDocente(Docente docente) { docentes.add(docente); }` (recibe un Docente que ya existe) |
+| Materia y Horario | Composición | `Horario s = new Horario(fecha, aula);` dentro de `agregarHorario()` (la Materia crea la parte) |
+| Docente y Materia | Asociación | `private final List<Materia> materias` y `dictar()` que hace `materias.add(materia); materia.setDocente(this);` (se conocen los dos) |
+| Inscripcion y Calificable | Realización (implementa la interfaz) | `class Inscripcion implements Calificable` |
+| Docente y Acta | Dependencia | `public Acta generarActa(Materia materia) { return new Acta(materia); }` (la usa y la devuelve, no la guarda como atributo) |

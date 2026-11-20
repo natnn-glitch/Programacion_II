@@ -1,0 +1,4 @@
+- En `crearCarrera()` el Todo controla la parte: la Universidad hace el `new Carrera(...)`, así que la Carrera nace dentro de la Universidad, solo existe por ella y si la Universidad desaparece, sus carreras también. Eso es composición.
+- En `agregarDocente()` la parte la controla otro: el Docente se crea afuera (en el main) y la Carrera solo guarda la referencia a un objeto que ya existía. El Docente puede existir sin la Carrera y, por definición de agregación, podría estar en varios todos. Eso es agregación.
+
+En resumen: en la composición quien crea y destruye la parte es el Todo; en la agregación el Todo solo la agrupa.

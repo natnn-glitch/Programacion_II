@@ -1,0 +1,19 @@
+Docente solo depende de Acta porque la usa de forma temporal: en `generarActa()` crea el Acta, la devuelve y se olvida de ella. No existe ningún atributo de tipo Acta dentro de Docente. Una asociación (como Docente con Materia) exige que el Docente guarde una referencia como atributo.
+
+Si se vuelve una asociación, el Docente tendría que guardar sus actas:
+```java
+class Docente extends Persona {
+  private final List<Acta> actas = new ArrayList<>();   // nuevo atributo
+
+  public Acta generarActa(Materia materia) {
+    Acta acta = new Acta(materia);
+    actas.add(acta);          // ahora el Docente guarda el acta
+    return acta;
+  }
+
+  public List<Acta> getActas() {
+    return Collections.unmodifiableList(actas);
+  }
+}
+```
+En el UML la flecha punteada pasaría a ser una línea continua con multiplicidad Docente 1 ... 0..* Acta. (Compilé este cambio y funciona.)
